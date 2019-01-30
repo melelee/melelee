@@ -21,8 +21,8 @@ spring:
     druid:
       url: jdbc:mysql://45.78.57.75:3306/melelee?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&&useSSL=false
       username: melelee
-      password: JEniEfLgLHONadDWRFwVhW/r52BmUiH9uzIP+/1j2M7O+FAPhp6eFpBBtJCKjPFHmJgvcAu4KU/eseTDh2AQAA==
-      publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIRbFC9d+eJ8Hfsk6LTKetLRGiB6y6rn+kKwU16ovpEzkxPkLy/0o3j7IJjDMeDcs1HFMJWfpH3+wybCpuDLyqcCAwEAAQ==
+      password: HVM8bTPY7gSyDQrVBX7eGSfUqUO3KQtMov2s0dkSWywOQyUQPMaQKP5wiimXHMDtweqxUhnUVjjZTU5zunX/6A==
+      publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJm80VzzEjAsWy0BlTLhD6FgsD4pD6zYl7n8XBBuciYfJD/uzpoAj3ZJSimjOP3DGkXMDNmcCba/E9yfdW/YxLsCAwEAAQ==
       initial-size: 1
       min-idle: 1
       max-active: 20
