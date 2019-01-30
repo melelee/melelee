@@ -20,10 +20,10 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 @EnableScheduling
 @EnableTransactionManagement
 @EnableSwagger2Doc
-public class HfghwApplication {
+public class MeleleeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HfghwApplication.class, args);
+		SpringApplication.run(MeleleeApplication.class, args);
 	}
 
 	/**
