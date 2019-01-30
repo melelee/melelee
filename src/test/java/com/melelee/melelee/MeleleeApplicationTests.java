@@ -12,10 +12,10 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @create 2018-12-17 9:14
  **/
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = HfghwApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(classes = MeleleeApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 //由于是Web项目，Junit需要模拟ServletContext，因此我们需要给我们的测试类加上@WebAppConfiguration。
 //@WebAppConfiguration
-public class HfghwApplicationTests {
+public class MeleleeApplicationTests {
 
 	@Before
 	public void init() {
