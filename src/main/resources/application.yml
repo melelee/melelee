@@ -1,11 +1,11 @@
 server:
-  port: 443
-  ssl:
-    key-store: classpath:server.keystore
-    key-alias: tomcat
-    enabled: true
-    key-store-password: 123123
-    key-store-type: JKS
+  port: 8080
+#  ssl:
+#    key-store: classpath:server.keystore
+#    key-alias: tomcat
+#    enabled: true
+#    key-store-password: 123123
+#    key-store-type: JKS
 #logging:
 #  config: classpath:logback-spring.xml
 #  file: blog.log
