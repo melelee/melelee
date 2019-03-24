@@ -9,6 +9,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(Exception.class)
 	public Response handleException(Exception e){
+		logger.error("系统异常：{}",e);
 		Response response = new Response();
 		response.setCode("999999");
 		response.setMsg(e.getMessage());

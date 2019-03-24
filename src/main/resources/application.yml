@@ -67,3 +67,10 @@ mybatis-plus:
 #  base-package: com.melelee.melelee
 
 job.dataimport.cron: 0 0 1 * * ?
+
+yltest:
+  token:
+    user: 34000001
+    password: 123456
+    granttype: client_credentials
+    url:
