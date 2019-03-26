@@ -84,7 +84,7 @@ public class CodeGenerator {
 				// 自定义输入文件名称
 				return projectPath + "/src/main/resources/mapper"
 //						+ "/" + pc.getModuleName()
-						+ "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+						+ "/" + tableInfo.getEntityName() + StringPool.DOT_XML;
 			}
 		});
 		cfg.setFileOutConfigList(focList);
