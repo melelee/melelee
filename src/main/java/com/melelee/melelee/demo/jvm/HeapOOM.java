@@ -1,4 +1,4 @@
-package com.melelee.melelee.jvm;
+package com.melelee.melelee.demo.jvm;
 
 import java.util.ArrayList;
 import java.util.List;

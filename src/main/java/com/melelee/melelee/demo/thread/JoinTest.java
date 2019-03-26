@@ -1,4 +1,4 @@
-package com.melelee.melelee.thread;
+package com.melelee.melelee.demo.thread;
 
 /**
  * Join测试

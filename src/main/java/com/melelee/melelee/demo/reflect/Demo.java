@@ -1,4 +1,4 @@
-package com.melelee.melelee.reflect;
+package com.melelee.melelee.demo.reflect;
 
 /**
  * 反射测试

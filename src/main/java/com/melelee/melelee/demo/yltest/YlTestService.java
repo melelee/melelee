@@ -1,4 +1,4 @@
-package com.melelee.melelee.yltest;
+package com.melelee.melelee.demo.yltest;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;

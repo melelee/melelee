@@ -1,4 +1,4 @@
-package com.melelee.melelee.thread.queue;
+package com.melelee.melelee.demo.thread.queue;
 
 /**
  * 队列测试
