@@ -77,7 +77,7 @@ mybatis-plus:
     default-statement-timeout: 25000
     map-underscore-to-camel-case: true
     aggressive-lazy-loading: false
-  mapper-locations: classpath:mapper/*/*.xml
+  mapper-locations: classpath:mapper/*.xml
 #swagger:
 #  base-package: com.melelee.melelee
 
