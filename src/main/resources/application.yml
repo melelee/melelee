@@ -13,16 +13,16 @@ spring:
     active: dev
 #    active: prod
   datasource:
-      #详解
-      #https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
-      #https://github.com/alibaba/druid/wiki/DruidDataSource%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E5%88%97%E8%A1%A8
+    #详解
+    #https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
+    #https://github.com/alibaba/druid/wiki/DruidDataSource%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E5%88%97%E8%A1%A8
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://172.17.28.75:4001/cloud?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-    username: midcuser
-    password: msHwmgRM2G6kpzGh7C3uXqZ8s9aUtHlTuR4mz+zWYRx2PmV59g6bwXoQ/cwwQgeBjp3MXnfdq26yHM0FQe2DiQ==
     driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://45.78.57.75:3306/melelee?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&&useSSL=false
+    username: melelee
+    password: HVM8bTPY7gSyDQrVBX7eGSfUqUO3KQtMov2s0dkSWywOQyUQPMaQKP5wiimXHMDtweqxUhnUVjjZTU5zunX/6A==
     druid:
-      publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALhfaofF2OCCW09U6mXNj3dF3+i0M+3E/lNmXDxou6d3aUxPK8bi3z/03nhbppT/ZuK7/Ry677J9KScAMXc5RIMCAwEAAQ==
+      publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJm80VzzEjAsWy0BlTLhD6FgsD4pD6zYl7n8XBBuciYfJD/uzpoAj3ZJSimjOP3DGkXMDNmcCba/E9yfdW/YxLsCAwEAAQ==
       initial-size: 1
       min-idle: 1
       max-active: 20
@@ -80,16 +80,3 @@ mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
 #swagger:
 #  base-package: com.melelee.melelee
-
-yltest:
-  token:
-    user: 34000001
-    password: 123456
-    granttype: client_credentials
-    url: https://172.17.28.74/oauth/token
-url:
-  getbusinessid: https://172.17.28.74/midc-externalservice/task/apply?orgId=
-  uploadfile: https://172.17.28.74/midc-externalservice/task/upload/batch
-dcm:
-  path: /home/midcuser/tmp/dcm
-  dir: /home/midcuser/tmp/dir
