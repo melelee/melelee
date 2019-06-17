@@ -33,7 +33,7 @@ public class ThreadDemo implements Runnable {
 		Thread.sleep(10000);
 		thread.interrupt();
 	}
-
+	synchronized
 	public static void main(String[] args) throws InterruptedException {
 		ThreadLocal threadLocal = new ThreadLocal();
 

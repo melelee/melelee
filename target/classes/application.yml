@@ -1,0 +1,82 @@
+server:
+  port: 8080
+logging:
+  config: classpath:logback-spring.xml
+#  file: blog.log
+#  level:
+#    com.melelee.melelee.controler: debug
+#    root: info
+#  path: logs/
+
+spring:
+  profiles:
+    active: dev
+#    active: prod
+  datasource:
+    #详解
+    #https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter
+    #https://github.com/alibaba/druid/wiki/DruidDataSource%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E5%88%97%E8%A1%A8
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://45.78.57.75:3306/melelee?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&&useSSL=false
+    username: melelee
+    password: HVM8bTPY7gSyDQrVBX7eGSfUqUO3KQtMov2s0dkSWywOQyUQPMaQKP5wiimXHMDtweqxUhnUVjjZTU5zunX/6A==
+    druid:
+      publickey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJm80VzzEjAsWy0BlTLhD6FgsD4pD6zYl7n8XBBuciYfJD/uzpoAj3ZJSimjOP3DGkXMDNmcCba/E9yfdW/YxLsCAwEAAQ==
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      max-wait: 60000
+      validation-query: select 'x'
+      validation-query-timeout: 10
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+#      max-evictable-idle-time-millis: 1\
+      connection-properties: config.decrypt=true;config.decrypt.key=${spring.datasource.druid.publickey}
+      filter:
+        config:
+          enabled: true
+        stat:
+          merge-sql: true
+          slow-sql-millis: 5000
+      stat-view-servlet:
+#        deny:
+#        allow:
+        login-username: melelee
+        login-password: 123123
+        reset-enable: false
+        url-pattern: /druid/*
+        enabled: true
+  redis:
+     # redis数据库索引（默认为0），我们使用索引为3的数据库，避免和其他数据库冲突
+     database: 0
+     # redis服务器地址（默认为localhost）
+     host: localhost
+     # redis端口（默认为6379）
+     port: 6379
+     # redis访问密码（默认为空）
+     password:
+     # redis连接超时时间（单位为毫秒）
+     timeout: 0
+     # redis连接池配置
+     pool:
+       # 最大可用连接数（默认为8，负数表示无限）
+       max-active: 8
+       # 最大空闲连接数（默认为8，负数表示无限）
+       max-idle: 8
+       # 最小空闲连接数（默认为0，该值只有为正数才有作用）
+       min-idle: 0
+       # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
+       max-wait: -1
+mybatis-plus:
+  configuration:
+    default-executor-type: simple
+    default-statement-timeout: 25000
+    map-underscore-to-camel-case: true
+    aggressive-lazy-loading: false
+  mapper-locations: classpath:mapper/*.xml
+#swagger:
+#  base-package: com.melelee.melelee
