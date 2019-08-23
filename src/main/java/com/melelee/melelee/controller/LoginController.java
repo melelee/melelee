@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @author melelee
  */
 @Slf4j
-@RestController
+@RequestMapping
 public class LoginController {
     /**
      * Index string.

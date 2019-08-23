@@ -27,7 +27,7 @@ spring:
       ddl-auto: update
     show-sql: true
 swagger:
-  base-package: com.melelee.mis.controller
+  base-package: com.melelee.melelee.controller
 shiro:
   web:
     enabled: true

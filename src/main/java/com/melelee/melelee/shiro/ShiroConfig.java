@@ -62,13 +62,17 @@ public class ShiroConfig {
      */
     @Bean
     ShiroFilterChainDefinition shiroFilterChainDefinition() {
-        DefaultShiroFilterChainDefinition definition = new DefaultShiroFilterChainDefinition();
-        definition.addPathDefinition("/", "anon");
-        definition.addPathDefinition("/index", "anon");
-        definition.addPathDefinition("/login", "anon");
-        definition.addPathDefinition("/dologin", "anon");
+        DefaultShiroFilterChainDefinition defaultShiroFilterChainDefinition = new DefaultShiroFilterChainDefinition();
+        defaultShiroFilterChainDefinition.addPathDefinition("/static/**", "anon");
+        defaultShiroFilterChainDefinition.addPathDefinition("/", "anon");
+        defaultShiroFilterChainDefinition.addPathDefinition("/index", "anon");
+        defaultShiroFilterChainDefinition.addPathDefinition("/login", "anon");
+        defaultShiroFilterChainDefinition.addPathDefinition("/dologin", "anon");
 
-        definition.addPathDefinition("/**", "authc");
-        return definition;
+//        defaultShiroFilterChainDefinition.addPathDefinition("/**", "authc");
+        //FIXME 不是这么玩的
+        defaultShiroFilterChainDefinition.addPathDefinition("/**", "anon");
+
+        return defaultShiroFilterChainDefinition;
     }
 }
