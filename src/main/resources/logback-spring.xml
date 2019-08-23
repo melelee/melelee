@@ -60,8 +60,6 @@
         <appender-ref ref="info_file"/>
     </appender>
 
-    <logger name="com.melelee.melelee.mapper" level="debug"/>
-
     <root level="info">
         <appender-ref ref="asyn_info_file"/>
         <appender-ref ref="error_file"/>
