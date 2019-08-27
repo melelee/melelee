@@ -92,7 +92,7 @@
             <version>2.3.2</version>
         </dependency>
 
-        <!--微信公众号 不推荐使用starter：spring-boot-starter -->
+        <!--微信公众号 不推荐使用starter：spring-boot-starter 使用数量少，文档少 -->
         <!--<dependency>-->
             <!--<groupId>com.github.binarywang</groupId>-->
             <!--<artifactId>wx-java-mp-spring-boot-starter</artifactId>-->

@@ -1,4 +1,4 @@
-package com.melelee.melelee.controller;
+package com.melelee.melelee.wechat.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,16 +9,16 @@ import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-
-
-@RestController
+/**
+ * @author Binary Wang(https://github.com/binarywang)
+ */
 @Slf4j
 @AllArgsConstructor
-@RequestMapping(value = "/wechat/{appid}")
-public class WechatController {
-
+@RestController
+@RequestMapping("/wechat/{appid}")
+public class WxPortalController {
     private final WxMpService wxService;
-//    private final WxMpMessageRouter messageRouter;
+    private final WxMpMessageRouter messageRouter;
 
     @GetMapping(produces = "text/plain;charset=utf-8")
     public String authGet(@PathVariable String appid,
@@ -28,7 +28,7 @@ public class WechatController {
                           @RequestParam(name = "echostr", required = false) String echostr) {
 
         log.info("\n接收到来自微信服务器的认证消息：[{}, {}, {}, {}]", signature,
-                timestamp, nonce, echostr);
+            timestamp, nonce, echostr);
         if (StringUtils.isAnyBlank(signature, timestamp, nonce, echostr)) {
             throw new IllegalArgumentException("请求参数非法，请核实!");
         }
@@ -54,8 +54,8 @@ public class WechatController {
                        @RequestParam(name = "encrypt_type", required = false) String encType,
                        @RequestParam(name = "msg_signature", required = false) String msgSignature) {
         log.info("\n接收微信请求：[openid=[{}], [signature=[{}], encType=[{}], msgSignature=[{}],"
-                        + " timestamp=[{}], nonce=[{}], requestBody=[\n{}\n] ",
-                openid, signature, encType, msgSignature, timestamp, nonce, requestBody);
+                + " timestamp=[{}], nonce=[{}], requestBody=[\n{}\n] ",
+            openid, signature, encType, msgSignature, timestamp, nonce, requestBody);
 
         if (!this.wxService.switchover(appid)) {
             throw new IllegalArgumentException(String.format("未找到对应appid=[%s]的配置，请核实！", appid));
@@ -69,9 +69,7 @@ public class WechatController {
         if (encType == null) {
             // 明文传输的消息
             WxMpXmlMessage inMessage = WxMpXmlMessage.fromXml(requestBody);
-//            WxMpXmlOutMessage outMessage = this.route(inMessage);
-            WxMpXmlOutMessage outMessage = null;
-
+            WxMpXmlOutMessage outMessage = this.route(inMessage);
             if (outMessage == null) {
                 return "";
             }
@@ -80,11 +78,9 @@ public class WechatController {
         } else if ("aes".equalsIgnoreCase(encType)) {
             // aes加密的消息
             WxMpXmlMessage inMessage = WxMpXmlMessage.fromEncryptedXml(requestBody, wxService.getWxMpConfigStorage(),
-                    timestamp, nonce, msgSignature);
+                timestamp, nonce, msgSignature);
             log.debug("\n消息解密后内容为：\n{} ", inMessage.toString());
-//            WxMpXmlOutMessage outMessage = this.route(inMessage);
-
-            WxMpXmlOutMessage outMessage = null;
+            WxMpXmlOutMessage outMessage = this.route(inMessage);
             if (outMessage == null) {
                 return "";
             }
@@ -96,13 +92,14 @@ public class WechatController {
         return out;
     }
 
-//    private WxMpXmlOutMessage route(WxMpXmlMessage message) {
-//        try {
-//            return this.messageRouter.route(message);
-//        } catch (Exception e) {
-//            log.error("路由消息时出现异常！", e);
-//        }
-//
-//        return null;
-//    }
+    private WxMpXmlOutMessage route(WxMpXmlMessage message) {
+        try {
+            return this.messageRouter.route(message);
+        } catch (Exception e) {
+            log.error("路由消息时出现异常！", e);
+        }
+
+        return null;
+    }
+
 }
