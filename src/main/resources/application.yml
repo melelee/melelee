@@ -41,3 +41,10 @@ shiro:
   successUrl: /success
   #未登录时，访问需要登录的url时，跳转的url
   loginUrl: /login
+wx:
+  mp:
+    configs:
+      - appId: 1111 （一个公众号的appid）
+        secret: 1111（公众号的appsecret）
+        token: 111 （接口配置里的Token值）
+        aesKey: 111 （接口配置里的EncodingAESKey值）
