@@ -12,4 +12,9 @@ public class Demo {
 	public String getName() {
 		return name;
 	}
+
+	public void setName(String name,int age) {
+		System.out.println(name);
+		System.out.println(age);
+	}
 }
