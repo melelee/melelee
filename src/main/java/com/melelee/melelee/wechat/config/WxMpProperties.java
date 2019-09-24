@@ -1,6 +1,6 @@
 package com.melelee.melelee.wechat.config;
 
-import com.melelee.melelee.wechat.utils.JsonUtils;
+import com.alibaba.fastjson.JSON;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -41,6 +41,6 @@ public class WxMpProperties {
 
     @Override
     public String toString() {
-        return JsonUtils.toJson(this);
+        return JSON.toJSONString(this);
     }
 }

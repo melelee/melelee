@@ -1,6 +1,4 @@
 #!/bin/bash
-. ~/.bashrc
-. ~/.bash_profile
 
 APP_NAME=midc-system
 APP_PORT=8866

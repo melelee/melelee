@@ -1,7 +1,7 @@
 package com.melelee.melelee.wechat.handler;
 
+import com.alibaba.fastjson.JSON;
 import com.melelee.melelee.wechat.builder.TextBuilder;
-import com.melelee.melelee.wechat.utils.JsonUtils;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -42,8 +42,9 @@ public class MsgHandler extends AbstractHandler {
             e.printStackTrace();
         }
 
+        logger.info("receive message {}", JSON.toJSONString(wxMessage,true));
         //TODO 组装回复消息
-        String content = "收到信息内容：" + JsonUtils.toJson(wxMessage);
+        String content = wxMessage.getContent();
 
         return new TextBuilder().build(content, wxMessage, weixinService);
 
