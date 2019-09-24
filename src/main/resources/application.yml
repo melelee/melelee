@@ -1,23 +1,11 @@
-server:
-  port: 8080
-logging:
-  config: classpath:logback-spring.xml
-  level:
-    org.springframework.web: INFO
-    com.github.binarywang.demo.wx.mp: DEBUG
-    me.chanjar.weixin: DEBUG
-#  file: blog.log
-#  level:
-#    com.melelee.melelee.controler: debug
-#    root: info
-#  path: logs/
-
 spring:
   profiles:
-    active: dev
-#    active: prod
-  jackson:
-    default-property-inclusion: non_null
+    active: test
+---
+server:
+  port: 8080
+spring:
+  profiles: dev
   application:
     name: melelee
   datasource:
@@ -30,6 +18,13 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+logging:
+  level:
+    root: info
+  path: ./logs/
+  file:
+    max-size: 100MB
+    max-history: 30
 swagger:
   base-package: com.melelee.melelee.controller
 shiro:
@@ -44,7 +39,42 @@ shiro:
 wx:
   mp:
     configs:
-      - appId: 1111 （一个公众号的appid）
-        secret: 1111（公众号的appsecret）
-        token: 111 （接口配置里的Token值）
-        aesKey: 111 （接口配置里的EncodingAESKey值）
+
+---
+server:
+  port: 8081
+spring:
+  profiles: test
+  application:
+    name: melelee
+  datasource:
+    name: test
+    url: jdbc:mysql://localhost/melelee?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: melelee
+    password: melelee
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+logging:
+  level:
+    root: info
+  path: ./logs/
+  file:
+    max-size: 100MB
+    max-history: 30
+swagger:
+  base-package: com.melelee.melelee.controller
+shiro:
+  web:
+    enabled: true
+  #没有权限默认跳转的页面，登录的用户访问了没有被授权的资源自动跳转到的页面。
+  unauthorizedUrl: /403
+  #登录成功默认跳转页面，不配置则跳转至”/”，可以不配置，直接通过代码进行处理。
+  successUrl: /success
+  #未登录时，访问需要登录的url时，跳转的url
+  loginUrl: /login
+wx:
+  mp:
+    configs:
