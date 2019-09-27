@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -14,17 +15,8 @@ import org.springframework.web.bind.annotation.*;
  * @author melelee
  */
 @Slf4j
-@RequestMapping
+@Controller
 public class LoginController {
-    /**
-     * Index string.
-     *
-     * @return the string
-     */
-    @GetMapping(value = {"/", "/index"})
-    public String index() {
-        return "index";
-    }
 
     /**
      * Success string.

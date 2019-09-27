@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: test
+    active: dev
 ---
 server:
   port: 8080
@@ -18,6 +18,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  devtools:
+    restart:
+      enabled: true
+#      additional-paths: src/main/java
+
 logging:
   level:
     root: info
@@ -29,7 +34,7 @@ swagger:
   base-package: com.melelee.melelee.controller
 shiro:
   web:
-    enabled: true
+    enabled: false
   #没有权限默认跳转的页面，登录的用户访问了没有被授权的资源自动跳转到的页面。
   unauthorizedUrl: /403
   #登录成功默认跳转页面，不配置则跳转至”/”，可以不配置，直接通过代码进行处理。
@@ -39,7 +44,10 @@ shiro:
 wx:
   mp:
     configs:
-
+      - appId: wx4c35aa74b7fce703
+        secret: 616e29def4f5292a232c94996a14420c
+        token: 87740b153c6a4fc9a4a4f4b07e13e5f3
+        aesKey: aqu01FR6nDBLiXJr8MKEy1Kdf2f17Aa97RI6S1iAO02
 ---
 server:
   port: 8081
@@ -78,3 +86,7 @@ shiro:
 wx:
   mp:
     configs:
+      - appId: wx4c35aa74b7fce703
+        secret: 616e29def4f5292a232c94996a14420c
+        token: 87740b153c6a4fc9a4a4f4b07e13e5f3
+        aesKey: aqu01FR6nDBLiXJr8MKEy1Kdf2f17Aa97RI6S1iAO02

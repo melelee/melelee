@@ -9,8 +9,8 @@
 # 返回值:
 #   None
 #######################################
-username="midcuser"
-password="iflytek!D123"
+username="user"
+password="password"
 dbname="cloud"
 dbhost="172.17.28.75"
 dbport=4001
