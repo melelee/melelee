@@ -1,63 +1,73 @@
 package com.melelee.melelee.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 /**
- * <p>
- * 
- * </p>
+ * 用户信息
  *
  * @author melelee
- * @since 2019-03-27
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
+@Entity
+@Table(name = "user")
 public class User implements Serializable {
+    private static final long serialVersionUID = -3629784071225214858L;
 
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 主键
-     */
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     /**
-     * 姓名
+     * 用户名
      */
+    @Column(name = "username", unique = true, nullable = false, length = 64)
+    private String username;
+
+    /**
+     * 密码(密文)
+     */
+    @Column(name = "password", length = 64)
+    private String password;
+
+    /**
+     * 昵称
+     */
+    @Column(name = "name", length = 18)
     private String name;
 
     /**
-     * 年龄
+     * 性别
      */
-    private Integer age;
-
-    /**
-     * 性别：0-男，1-女,3-未知，4-其他
-     */
-    private Integer sex;
+    private int gender;
 
     /**
      * 邮箱
      */
+    @Column(name = "email", unique = true, length = 64)
     private String email;
 
     /**
-     * 手机
+     * 注册时间
      */
-    private String tel;
+    private Date created;
 
     /**
-     * 地址
+     * 最后登录时间
      */
-    private String adress;
+    @Column(name = "last_login")
+    private Date lastLogin;
 
+    /**
+     * 用户状态
+     */
+    private int status;
 
+    @Transient
+    private List<Role> roleList;
 }
+

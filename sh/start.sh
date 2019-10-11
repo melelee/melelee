@@ -1,6 +1,4 @@
 #!/bin/bash
-. ~/.bashrc
-. ~/.bash_profile
 
 APP_NAME=midc-system
 APP_PORT=8866
@@ -11,7 +9,7 @@ APP_PORT=8866
 IP=
 JMX_PORT=
 
-CONFIG_SERVER_URL=http://user:iflytek!@172.22.124.181:8863
+CONFIG_SERVER_URL=http://user:password!@ip:port
 
 BASE_PATH=$(cd `dirname $0`;pwd)
 cd ${BASE_PATH}
