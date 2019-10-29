@@ -16,6 +16,9 @@ public class JoinTest {
 				e.printStackTrace();
 			}
 		});
+
+		thread.setPriority(Thread.MAX_PRIORITY);
+
 		thread.start();
 		thread.join();
 		System.out.println("main end");
