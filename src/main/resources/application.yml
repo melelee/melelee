@@ -30,10 +30,3 @@ shiro:
   successUrl: /success
   #未登录时，访问需要登录的url时，跳转的url
   loginUrl: /login
-wx:
-  mp:
-    configs:
-      - appId: wx4c35aa74b7fce703
-        secret: 616e29def4f5292a232c94996a14420c
-        token: 87740b153c6a4fc9a4a4f4b07e13e5f3
-        aesKey: aqu01FR6nDBLiXJr8MKEy1Kdf2f17Aa97RI6S1iAO02
