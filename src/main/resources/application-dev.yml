@@ -1,9 +1,9 @@
 spring:
   datasource:
     name: test
-    url: jdbc:mysql://localhost:3306/dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://47.240.60.26:3306/dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: Password124
+    password: 123456
   devtools:
     restart:
       enabled: true
