@@ -1,5 +1,7 @@
 server:
   port: 8080
+  servlet:
+    context-path: /melelee
 spring:
   profiles:
     active: dev
