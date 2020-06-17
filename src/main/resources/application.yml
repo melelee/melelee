@@ -22,4 +22,5 @@ logging:
     max-size: 100MB
     max-history: 30
 swagger:
-  base-package: com.melelee.melelee.controller
+  enabled: true
+  base-package: com.melelee
