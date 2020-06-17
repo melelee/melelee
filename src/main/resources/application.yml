@@ -1,7 +1,7 @@
 server:
   port: 8080
-  servlet:
-    context-path: /melelee
+#  servlet:
+#    context-path: /melelee
 spring:
   profiles:
     active: dev
@@ -23,12 +23,3 @@ logging:
     max-history: 30
 swagger:
   base-package: com.melelee.melelee.controller
-shiro:
-  web:
-    enabled: false
-  #没有权限默认跳转的页面，登录的用户访问了没有被授权的资源自动跳转到的页面。
-  unauthorizedUrl: /403
-  #登录成功默认跳转页面，不配置则跳转至”/”，可以不配置，直接通过代码进行处理。
-  successUrl: /success
-  #未登录时，访问需要登录的url时，跳转的url
-  loginUrl: /login

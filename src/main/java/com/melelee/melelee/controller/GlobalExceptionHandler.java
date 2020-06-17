@@ -1,7 +1,7 @@
 package com.melelee.melelee.controller;
 
 
-import com.melelee.melelee.controller.bean.Response;
+import com.melelee.melelee.controller.vo.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
@@ -24,71 +24,71 @@ class GlobalExceptionHandler {
 
 
     /**
-     * Default error handler response.
+     * Default error handler Result.
      *
      * @param e the e
-     * @return the response
-     * @throws Exception the exception
+     * @return the Result
      */
     @ExceptionHandler(value = Exception.class)
-    public Response defaultErrorHandler(Exception e) throws Exception {
-        Response stringResponse = null;
+    public Result<Object> defaultErrorHandler(Exception e) {
         log.error("system run error：", e);
-        stringResponse = new Response(-1, "系统运行异常");
-        return stringResponse;
+        return new Result<>(-1, "系统运行异常");
     }
 
     /**
-     * Handle bind exception response.
+     * Handle bind exception Result.
      *
      * @param e the e
-     * @return the response
+     * @return the Result
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Response handleBindException(MethodArgumentNotValidException e) {
+    public Result<Object> handleBindException(MethodArgumentNotValidException e) {
         FieldError fieldError = e.getBindingResult().getFieldError();
+        if (fieldError == null) {
+            return new Result<>(9010, "业务参数校验异常");
+        }
         log.info("parameter check error:{}({})", fieldError.getDefaultMessage(), fieldError.getField());
-        return new Response(9010, "业务参数校验异常：" + fieldError.getField() + " " + fieldError.getDefaultMessage());
+        return new Result<>(9010, "业务参数校验异常：" + fieldError.getField() + " " + fieldError.getDefaultMessage());
     }
 
     /**
-     * Handle missing servlet request parameter exception response.
+     * Handle missing servlet request parameter exception Result.
      *
      * @param e the e
-     * @return the response
+     * @return the Result
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Response handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
+    public Result<Object> handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
         log.error("MissingServletRequestParameterException：", e);
-        return new Response(9011,"参数缺失：" + e.getParameterName());
+        return new Result<>(9011, "参数缺失：" + e.getParameterName());
     }
 
     /**
-     * Handle multipart exception response.
+     * Handle multipart exception Result.
      *
      * @param e the e
-     * @return the response
+     * @return the Result
      */
     @ExceptionHandler(MultipartException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Response handleMultipartException(MultipartException e) {
+    public Result<Object> handleMultipartException(MultipartException e) {
         log.error("file upload multipartException：", e);
-        return new Response(9020, "文件上传异常");
+        return new Result<>(9020, "文件上传异常");
     }
 
     /**
-     * Handle servlet request part exception response.
+     * Handle servlet request part exception Result.
      *
      * @param e the e
-     * @return the response
+     * @return the Result
      */
     @ExceptionHandler(MissingServletRequestPartException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Response handleServletRequestPartException(MissingServletRequestPartException e) {
+    public Result<Object> handleServletRequestPartException(MissingServletRequestPartException e) {
         log.error("file upload missingservletrequestpartexception：", e);
-        return new Response(9021, "文件未上传");
+        return new Result<>(9021, "文件未上传");
     }
 }
 

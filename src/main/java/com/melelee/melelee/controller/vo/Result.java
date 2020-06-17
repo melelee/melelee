@@ -1,18 +1,19 @@
-package com.melelee.melelee.controller.bean;
+package com.melelee.melelee.controller.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * The type Response.
+ * The type Result.
  *
+ * @author melelee
  * @param <T> the type parameter
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Response<T> {
+public class Result<T> {
     /**
      * The constant SUCCESS.
      */
@@ -23,12 +24,12 @@ public class Response<T> {
     public static final int ERROR = -1;
 
     /**
-     * Instantiates a new Response.
+     * Instantiates a new Result.
      *
      * @param code    the code
      * @param message the message
      */
-    public Response(int code, String message) {
+    public Result(int code, String message) {
         this.code = code;
         this.message = message;
     }
@@ -48,69 +49,69 @@ public class Response<T> {
 
 
     /**
-     * Success response.
+     * Success Result.
      *
      * @param <T> the type parameter
-     * @return the response
+     * @return the Result
      */
-    public static <T> Response<T> success() {
+    public static <T> Result<T> success() {
         return success(null);
     }
 
     /**
-     * Success response.
+     * Success Result.
      *
      * @param <T>  the type parameter
      * @param data the data
-     * @return the response
+     * @return the Result
      */
-    public static <T> Response<T> success(T data) {
+    public static <T> Result<T> success(T data) {
         return success("操作成功", data);
     }
 
     /**
-     * Success message response.
+     * Success message Result.
      *
      * @param <T>     the type parameter
      * @param message the message
-     * @return the response
+     * @return the Result
      */
-    public static <T> Response<T> successMessage(String message) {
+    public static <T> Result<T> successMessage(String message) {
         return success(message, null);
     }
 
     /**
-     * Success response.
+     * Success Result.
      *
      * @param <T>     the type parameter
      * @param message the message
      * @param data    the data
-     * @return the response
+     * @return the Result
      */
-    public static <T> Response<T> success(String message, T data) {
-        return new Response<>(Response.SUCCESS, message, data);
+    public static <T> Result<T> success(String message, T data) {
+        return new Result<>(Result.SUCCESS, message, data);
     }
 
     /**
-     * Failure response.
+     * Failure Result.
      *
      * @param <T>     the type parameter
      * @param message the message
-     * @return the response
+     * @return the Result
      */
-    public static <T> Response<T> failure(String message) {
-        return failure(Response.ERROR, message);
+    public static <T> Result<T> failure(String message) {
+        return failure(Result.ERROR, message);
     }
 
     /**
-     * Failure response.
+     * Failure Result.
      *
      * @param <T>     the type parameter
      * @param code    the code
      * @param message the message
-     * @return the response
+     * @return the Result
      */
-    public static <T> Response<T> failure(int code, String message) {
-        return new Response<>(code, message, null);
+    public static <T> Result<T> failure(int code, String message) {
+        return new Result<>(code, message, null);
     }
 }

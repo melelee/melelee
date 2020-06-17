@@ -1,6 +1,5 @@
 package com.melelee.melelee;
 
-import com.didispace.swagger.EnableSwagger2Doc;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -10,16 +9,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 /**
  * @author melelee
  */
-@SpringBootApplication
 @Slf4j
+@SpringBootApplication
 @EnableScheduling
+@EnableSwagger2
 @EnableTransactionManagement
-@EnableSwagger2Doc
 public class MeleleeApplication {
 
     public static void main(String[] args) {
