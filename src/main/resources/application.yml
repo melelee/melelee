@@ -7,6 +7,10 @@ spring:
     active: dev
   application:
     name: melelee
+  thymeleaf:
+    mode: HTML
+    encoding: UTF-8
+    cache: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
