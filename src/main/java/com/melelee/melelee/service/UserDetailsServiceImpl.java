@@ -32,7 +32,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         // 2. 设置角色
         Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("user");
+        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_USER");
         grantedAuthorities.add(grantedAuthority);
 
         return new org.springframework.security.core.userdetails.User(username, user.getPassword(), grantedAuthorities);

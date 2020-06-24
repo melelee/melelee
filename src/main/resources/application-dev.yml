@@ -6,5 +6,8 @@ spring:
     password:
   devtools:
     restart:
-      enabled: true
+      enabled: false
 #      additional-paths: src/main/java
+logging:
+  level:
+    root: debug
