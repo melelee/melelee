@@ -23,3 +23,5 @@ CREATE TABLE user (
   tel    VARCHAR(20) COMMENT '手机',
   adress VARCHAR(100) COMMENT '地址'
 );
+
+--git测试2
