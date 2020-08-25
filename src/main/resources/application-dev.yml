@@ -10,4 +10,4 @@ spring:
 #      additional-paths: src/main/java
 logging:
   level:
-    root: debug
+    root: info

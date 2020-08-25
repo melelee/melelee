@@ -2,6 +2,7 @@ package com.melelee.melelee.service;
 
 import com.melelee.melelee.entity.User;
 import com.melelee.melelee.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,10 +19,10 @@ import java.util.Collection;
  * @date 2020/6/17 18:18
  */
 @Component("userDetailsService")
+@RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
-    UserRepository userRepository;
+    final UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

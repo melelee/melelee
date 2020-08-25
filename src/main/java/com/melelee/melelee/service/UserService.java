@@ -2,6 +2,7 @@ package com.melelee.melelee.service;
 
 import com.melelee.melelee.entity.User;
 import com.melelee.melelee.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -14,11 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
  * @author melelee
  */
 @Service
+@RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = true)
 public class UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    final UserRepository userRepository;
 
     /**
      * Find by username user.
